@@ -1,4 +1,4 @@
-name: CI
+name: main
 on: push
 jobs:
   pytest:
@@ -8,5 +8,6 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-    - run: pip install pytest
-    - run: pytest
+    - uses: snok/install-poetry@v1
+    - run: poetry install
+    - run: poetry run pytest
