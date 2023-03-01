@@ -10,5 +10,5 @@ def mae(x, y):
 @mae.defjvp
 def mae_jvp(primals, tangents):
     x, y = primals
-    dx, dy = tangents
+    _, dy = tangents
     return mae(x, y), where(y > x, 1.0, where(y < x, -1.0, 0.0)) * dy
