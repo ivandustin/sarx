@@ -1,7 +1,7 @@
 name: main
 on: push
 jobs:
-  pytest:
+  main:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -11,3 +11,4 @@ jobs:
     - uses: snok/install-poetry@v1
     - run: poetry install
     - run: poetry run pytest
+    - run: poetry run flake8 .
