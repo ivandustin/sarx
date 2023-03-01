@@ -8,7 +8,7 @@ def mae(e):
 
 
 @mae.defjvp
-def maejvp(primals, tangents):
+def mae_jvp(primals, tangents):
     x, = primals
     dy, = tangents
     zero = zeros_like(x)
