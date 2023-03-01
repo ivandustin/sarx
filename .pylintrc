@@ -1,0 +1,5 @@
+[MESSAGES CONTROL]
+disable=
+    redefined-builtin,
+    missing-docstring,
+    invalid-name
