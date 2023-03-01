@@ -1,16 +1,14 @@
-from jax.numpy import mean, abs, where, zeros_like, ones_like, negative
+from jax.numpy import abs, mean, where
 from jax import custom_jvp
 
 
 @custom_jvp
-def mae(e):
-    return mean(abs(e))
+def mae(x, y):
+    return mean(abs(y - x))
 
 
 @mae.defjvp
 def mae_jvp(primals, tangents):
-    x, = primals
-    dy, = tangents
-    zero = zeros_like(x)
-    one = ones_like(x)
-    return mae(x), where(x > 0, one, where(x < 0, negative(one), zero)) * dy
+    x, y = primals
+    dx, dy = tangents
+    return mae(x, y), where(y > x, 1.0, where(y < x, -1.0, 0.0)) * dy
