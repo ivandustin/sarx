@@ -6,6 +6,7 @@ from jax import custom_jvp
 def mae(e):
     return mean(abs(e))
 
+
 @mae.defjvp
 def maejvp(primals, tangents):
     x, = primals
