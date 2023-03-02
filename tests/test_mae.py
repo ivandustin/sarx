@@ -10,7 +10,7 @@ def test_mae():
 
 
 def test_grad():
-    g = grad(lambda x: mae(0.0, 0.0 + x))
-    assert g(0.0) == 0.0
-    assert g(10.0) == 1.0
-    assert g(-10.0) == -1.0
+    function = grad(lambda x: mae(0.0, 0.0 + x))
+    assert function(0.0) == 0.0
+    assert function(10.0) == 1.0
+    assert function(-10.0) == -1.0
