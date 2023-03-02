@@ -32,5 +32,5 @@ def test():
             [0.0]
         ]
     ])
-    actual = array(infer(spike)(x, S))
+    actual = array(infer(spike)(S, x))
     assert array_equal(actual, expected)
