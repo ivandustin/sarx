@@ -2,6 +2,7 @@ from jax.random import PRNGKey
 from jax.numpy import isclose
 from sarx import synapse
 
+
 def test():
     key = PRNGKey(0)
     syn = synapse(key, shape=(1000,))
