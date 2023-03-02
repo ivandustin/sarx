@@ -3,7 +3,7 @@ from .tail import tail
 
 
 def infer(activate):
-    def f(x, S):
+    def function(x, S):
         n = 0
         X = []
         for s in S:
@@ -12,4 +12,4 @@ def infer(activate):
             n = tail(n)
             X = X + [x]
         return X
-    return f
+    return function
