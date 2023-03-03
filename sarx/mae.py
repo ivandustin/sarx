@@ -11,4 +11,4 @@ def mae(x, y):
 def mae_jvp(primals, tangents):
     x, y = primals
     _, dy = tangents
-    return mae(x, y), sign(y - x) * dy
+    return mae(x, y), mean(sign(y - x) * dy)
