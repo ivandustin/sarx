@@ -6,12 +6,12 @@ from sarx import network, feed, infer, spike, mae, gd
 
 def test():
     key = PRNGKey(0)
-    net = network(key, 1)
+    model = network(key, 1)
     x = array([[1.0]])
     y = array([[1.7]])
-    before = predict(net, x)
-    net = train(net, x, y)
-    after = predict(net, x)
+    before = predict(model, x)
+    model = train(model, x, y)
+    after = predict(model, x)
     assert not isclose(before, y, atol=0.05)
     assert isclose(after, y, atol=0.05)
 
