@@ -23,7 +23,7 @@ def train(network, x, y):
 
 
 def predict(network, x):
-    return infer(spike)(network, x)[-1]
+    return infer(spike)(network, x)[1][-1]
 
 
 def loss(network, x, y):

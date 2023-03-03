@@ -7,6 +7,7 @@ def test():
         [1.0, 1.0],
         [1.0, 0.0],
         [0.0, 1.0],
+        [2.0, 2.0],
         [0.0, 0.0]
     ])
     S = [
@@ -18,19 +19,40 @@ def test():
             [0.5]
         ])
     ]
-    expected = array([
+    expected_a = array([
+        [
+            [1.2],
+            [1.0],
+            [0.2],
+            [2.4],
+            [0.0]
+        ],
+        [
+            [1.7],
+            [0.6],
+            [1.0],
+            [3.2],
+            [0.0]
+        ]
+    ])
+    expected_b = array([
         [
             [1.2],
             [1.0],
             [0.0],
+            [2.0],
             [0.0]
         ],
         [
             [1.7],
             [0.0],
             [1.0],
+            [2.0],
             [0.0]
         ]
     ])
-    actual = array(infer(spike)(S, x))
-    assert array_equal(actual, expected)
+    actual = infer(spike)(S, x)
+    actual_a = array(actual[0])
+    actual_b = array(actual[1])
+    assert array_equal(actual_a, expected_a)
+    assert array_equal(actual_b, expected_b)
