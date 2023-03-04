@@ -11,16 +11,18 @@ def test():
     x = array([[1.0]])
     y = array([[1.7]])
     before = predict(model, x)
-    model = train(model, x, y)
+    model = train(model, x, y, 0.1)
+    model = train(model, x, y, 0.001)
+    model = train(model, x, y, 0.00001)
     after = predict(model, x)
-    assert not isclose(before, y, atol=0.05)
-    assert isclose(after, y, atol=0.05)
+    assert not isclose(before, y)
+    assert isclose(after, y)
 
 
-def train(network, x, y):
+def train(network, x, y, learning_rate):
     def body(_, network):
-        return feed(loss, update)(network, x, y)
-    return fori_loop(0, 2, body, network)
+        return feed(loss, update(learning_rate))(network, x, y)
+    return fori_loop(0, 60, body, network)
 
 
 def predict(network, x):
@@ -31,5 +33,7 @@ def loss(network, x, y):
     return mae(y, predict(network, x))
 
 
-def update(network, gradient):
-    return tree_map(gd(0.1), network, gradient)
+def update(learning_rate):
+    def function(network, gradient):
+        return tree_map(gd(learning_rate), network, gradient)
+    return function
