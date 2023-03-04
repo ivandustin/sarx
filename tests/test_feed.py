@@ -1,4 +1,5 @@
 from jax.numpy import array, isclose
+from jax.tree_util import tree_map
 from jax.random import PRNGKey
 from jax.lax import fori_loop
 from sarx import network, feed, infer, spike, mae, gd
@@ -30,5 +31,5 @@ def loss(network, x, y):
     return mae(y, predict(network, x))
 
 
-def update(synapse, gradient):
-    return gd(synapse, 0.1, gradient)
+def update(network, gradient):
+    return tree_map(gd(0.1), network, gradient)
