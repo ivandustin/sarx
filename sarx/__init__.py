@@ -5,6 +5,7 @@ from .prune import prune
 from .spike import spike
 from .feed import feed
 from .mae import mae
+from .mse import mse
 from .gd import gd
 
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     'spike',
     'feed',
     'mae',
+    'mse',
     'gd'
 ]
