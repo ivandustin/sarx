@@ -239,6 +239,18 @@ files = [
 ]
 
 [[package]]
+name = "multimethod"
+version = "1.9.1"
+description = "Multiple argument dispatching."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "multimethod-1.9.1-py3-none-any.whl", hash = "sha256:52f8f1f2b9d5a4c7adfdcc114dbeeebe3245a4420801e8807e26522a79fb6bc2"},
+    {file = "multimethod-1.9.1.tar.gz", hash = "sha256:1589bf52ca294667fd15527ea830127c763f5bfc38562e3642591ffd0fd9d56f"},
+]
+
+[[package]]
 name = "numpy"
 version = "1.24.2"
 description = "Fundamental package for array computing in Python"
@@ -580,4 +592,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "69737aa6ec4b6a23e70731977d8215d7991f1e78b03663bbe3d9219922b7b959"
+content-hash = "c8c2a2bf7474b3fe14260e4869eb515ebbe97a967f8a3cd85596898176575b9e"
