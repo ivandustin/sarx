@@ -1,6 +1,7 @@
 from .neurogenesis import neurogenesis
 from .forward import forward
 from .network import network
+from .predict import predict
 from .update import update
 from .prune import prune
 from .spike import spike
@@ -11,6 +12,7 @@ __all__ = [
     'neurogenesis',
     'forward',
     'network',
+    'predict',
     'update',
     'prune',
     'spike',
