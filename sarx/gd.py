@@ -1,2 +1,2 @@
-def gd(theta, alpha, gradient):
+def gd(theta, gradient, alpha):
     return theta - alpha * gradient
