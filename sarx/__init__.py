@@ -5,6 +5,7 @@ from .predict import predict
 from .update import update
 from .prune import prune
 from .spike import spike
+from .loss import loss
 from .mse import mse
 from .gd import gd
 
@@ -16,6 +17,7 @@ __all__ = [
     'update',
     'prune',
     'spike',
+    'loss',
     'mse',
     'gd'
 ]
