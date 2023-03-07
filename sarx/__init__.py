@@ -1,6 +1,7 @@
 from .neurogenesis import neurogenesis
 from .forward import forward
 from .network import network
+from .update import update
 from .prune import prune
 from .spike import spike
 from .mse import mse
@@ -10,6 +11,7 @@ __all__ = [
     'neurogenesis',
     'forward',
     'network',
+    'update',
     'prune',
     'spike',
     'mse',
