@@ -1,2 +1,2 @@
 # sarx
-A simple bioinspired artificial neural network library in JAX
+A simple bioinspired artificial neural network in JAX
