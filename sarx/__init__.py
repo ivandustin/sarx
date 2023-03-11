@@ -10,14 +10,14 @@ from .mse import mse
 from .gd import gd
 
 __all__ = [
-    'neurogenesis',
-    'forward',
-    'Network',
-    'network',
-    'update',
-    'apply',
-    'spike',
-    'loss',
-    'mse',
-    'gd'
+    "neurogenesis",
+    "forward",
+    "Network",
+    "network",
+    "update",
+    "apply",
+    "spike",
+    "loss",
+    "mse",
+    "gd",
 ]

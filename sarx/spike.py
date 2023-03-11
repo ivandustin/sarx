@@ -9,6 +9,6 @@ def spike(x):
 
 @spike.defjvp
 def spike_jvp(primals, tangents):
-    x, = primals
-    dy, = tangents
+    (x,) = primals
+    (dy,) = tangents
     return spike(x), dy

@@ -1,3 +1,3 @@
 from .network import Network
 
-__all__ = ['Network']
+__all__ = ["Network"]

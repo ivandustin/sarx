@@ -12,4 +12,5 @@ def loss(f):
     def function(network, x):
         yhat = network(x)
         return mse(f(yhat), yhat)
+
     return function

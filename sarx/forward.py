@@ -18,6 +18,7 @@ def forward(f):
             A = A + [a]
             B = B + [x]
         return A, B
+
     return function
 
 
