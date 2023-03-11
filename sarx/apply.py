@@ -3,5 +3,5 @@ from .forward import forward
 
 
 @jit
-def apply(network, x):
-    return forward(network, x)[1][-1]
+def apply(*args, **kwargs):
+    return forward(*args, **kwargs)[1][-1]
