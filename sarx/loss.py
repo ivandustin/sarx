@@ -1,17 +1,15 @@
-from typing import Callable
-from multimethod import multimethod
-from .apply import apply
+from multipledispatch import dispatch
 from .mse import mse
 
 
-@multimethod
+@dispatch(object, object, object)
 def loss(network, x, y):
-    return mse(y, apply(network, x))
+    return mse(y, network(x))
 
 
-@multimethod
-def loss(f: Callable):
+@dispatch(object)
+def loss(f):
     def function(network, x):
-        yhat = apply(network, x)
+        yhat = network(x)
         return mse(f(yhat), yhat)
     return function

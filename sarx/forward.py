@@ -1,12 +1,11 @@
-from typing import Callable
-from multimethod import multimethod
+from multipledispatch import dispatch
 from .first import first
 from .spike import spike
 from .tail import tail
 
 
-@multimethod
-def forward(f: Callable):
+@dispatch(object)
+def forward(f):
     def function(S, x):
         n = 0
         A = []
@@ -22,6 +21,6 @@ def forward(f: Callable):
     return function
 
 
-@multimethod
+@dispatch(object, object)
 def forward(S, x):
     return forward(spike)(S, x)

@@ -1,5 +1,6 @@
 from .neurogenesis import neurogenesis
 from .forward import forward
+from .classes import Network
 from .network import network
 from .update import update
 from .apply import apply
@@ -11,6 +12,7 @@ from .gd import gd
 __all__ = [
     'neurogenesis',
     'forward',
+    'Network',
     'network',
     'update',
     'apply',

@@ -1,5 +1,5 @@
 from jax.random import PRNGKey, split
-from sarx import network, neurogenesis
+from sarx import network, neurogenesis, Network
 
 
 def test():
@@ -16,3 +16,4 @@ def test():
     assert model[4].shape == (1, 3)
     assert model[5].shape == (1, 2)
     assert model[6].shape == (1, 1)
+    assert type(model) == Network

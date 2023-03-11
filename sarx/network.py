@@ -1,5 +1,6 @@
+from .classes import Network
 from .synapse import synapse
 
 
-def network(key, n):
-    return [synapse(key, shape=(n, 1))]
+def network(key, n) -> Network:
+    return Network([synapse(key, shape=(n, 1))])
