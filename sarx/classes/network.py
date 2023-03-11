@@ -5,8 +5,7 @@ from sarx.apply import apply
 
 
 class Network(list):
-    def __call__(self, x):
-        return apply(self, x)
+    __call__ = apply
 
 
 register_pytree_node(Network, tree_flatten, tree_unflatten)
