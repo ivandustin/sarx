@@ -1,5 +1,5 @@
 from jax.tree_util import register_pytree_node
-from sarx.apply import apply
+from ..apply import apply
 
 
 class Network(list):
