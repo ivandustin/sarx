@@ -2,7 +2,7 @@ from jax.numpy import array, array_equal
 from jax.random import PRNGKey, split
 from jax.lax import fori_loop
 from jax import grad
-from sarx import network, neurogenesis, apply, update, loss
+from sarx import network, neurogenesis, update, loss
 
 
 def test():
@@ -23,7 +23,7 @@ def test():
         [0.0]
     ])
     model = train(model, x, y, 0.1)
-    assert array_equal(apply(model, x).clip(0, 1), y)
+    assert array_equal(model(x).clip(0, 1), y)
 
 
 def train(network, x, y, learning_rate):

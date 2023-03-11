@@ -2,7 +2,7 @@ from jax.numpy import array, isclose
 from jax.random import PRNGKey
 from jax.lax import fori_loop
 from jax import grad
-from sarx import network, apply, update, loss
+from sarx import network, update, loss
 
 
 def test():
@@ -15,7 +15,7 @@ def test():
         [1.7]
     ])
     model = train(model, x, y, 0.1)
-    assert isclose(apply(model, x), y)
+    assert isclose(model(x), y)
 
 
 def train(network, x, y, learning_rate):
