@@ -1,5 +1,5 @@
 from .forward import forward
 
 
-def predict(network, x):
+def apply(network, x):
     return forward(network, x)[1][-1]
