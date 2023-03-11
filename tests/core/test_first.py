@@ -1,12 +1,12 @@
 from jax.numpy import arange, array, array_equal
-from sarx.right import right
+from sarx.core.first import first
 
 
 def test():
     matrix = arange(1, 10).reshape(3, 3)
     expected = array([
-        [3],
-        [6],
-        [9]
+        [1],
+        [4],
+        [7]
     ])
-    assert array_equal(right(matrix), expected)
+    assert array_equal(first(matrix), expected)

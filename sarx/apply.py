@@ -1,5 +1,5 @@
-from .forward import forward
 from jax import jit
+from .forward import forward
 
 
 @jit

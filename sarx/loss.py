@@ -1,5 +1,5 @@
 from multipledispatch import dispatch
-from .mse import mse
+from .core.mse import mse
 
 
 @dispatch(object, object, object)

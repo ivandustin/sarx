@@ -1,6 +1,6 @@
 from jax.numpy import float32, isclose
 from jax.random import PRNGKey
-from sarx.synapse import synapse
+from sarx.core.synapse import synapse
 
 
 def test():

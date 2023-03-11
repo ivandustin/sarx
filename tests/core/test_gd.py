@@ -1,4 +1,4 @@
-from sarx import gd
+from sarx.core import gd
 
 
 def test_gd():

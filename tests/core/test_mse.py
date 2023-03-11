@@ -1,5 +1,5 @@
 from jax.numpy import array, mean, square, array_equal
-from sarx import mse
+from sarx.core import mse
 
 
 def test():

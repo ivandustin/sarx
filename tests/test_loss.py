@@ -2,12 +2,13 @@ from jax.numpy import array, isclose
 from jax.random import PRNGKey
 from jax.lax import fori_loop
 from jax import grad
-from sarx import network, update, loss
+from sarx import network, update, loss, neurogenesis
 
 
 def test():
     key = PRNGKey(0)
     model = network(key, 1)
+    model = neurogenesis(key, model)
     x = array([
         [1.0]
     ])

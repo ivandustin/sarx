@@ -1,6 +1,6 @@
+from .core import network as f
 from .classes import Network
-from .synapse import synapse
 
 
-def network(key, n) -> Network:
-    return Network([synapse(key, shape=(n, 1))])
+def network(key, n):
+    return Network(f(key, n))
