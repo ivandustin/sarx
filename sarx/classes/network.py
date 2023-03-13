@@ -1,17 +1,8 @@
-from jax.tree_util import register_pytree_node
+from jax.tree_util import register_pytree_node_class
+from ..pytrees import List
 from ..apply import apply
 
 
-class Network(list):
+@register_pytree_node_class
+class Network(List):
     __call__ = apply
-
-
-def flatten(network):
-    return (network, None)
-
-
-def unflatten(_, children):
-    return Network(children)
-
-
-register_pytree_node(Network, flatten, unflatten)
