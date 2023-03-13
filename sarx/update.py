@@ -21,14 +21,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from functools import partial
 from jax.tree_util import tree_map
 from .core import update as update_function
 
 
 def update(network, gradient, learning_rate):
     return tree_map(
-        partial(update_function, learning_rate=learning_rate),
+        lambda network, gradient: update_function(network, gradient, learning_rate),
         network,
         gradient,
     )
