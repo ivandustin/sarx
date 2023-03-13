@@ -1,6 +1,6 @@
-from jax.numpy import clip
+from .gc import gc
 from .gd import gd
 
 
 def update(network, gradient, learning_rate):
-    return gd(network, clip(gradient, -8, 8), learning_rate)
+    return gd(network, gc(gradient), learning_rate)

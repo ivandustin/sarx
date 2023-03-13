@@ -10,6 +10,7 @@ from .spike import spike
 from .left import left
 from .tail import tail
 from .mse import mse
+from .gc import gc
 from .gd import gd
 
 __all__ = [
@@ -25,5 +26,6 @@ __all__ = [
     "left",
     "tail",
     "mse",
+    "gc",
     "gd",
 ]
