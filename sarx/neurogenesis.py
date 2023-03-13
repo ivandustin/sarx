@@ -1,6 +1,6 @@
-from .core import neurogenesis as f
+from .core import neurogenesis as neurogenesis_function
 from .classes import Network
 
 
 def neurogenesis(*args, **kwargs):
-    return Network(f(*args, **kwargs))
+    return Network(neurogenesis_function(*args, **kwargs))

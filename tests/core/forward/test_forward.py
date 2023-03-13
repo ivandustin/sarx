@@ -1,5 +1,6 @@
 from jax.numpy import array, array_equal
-from sarx.core import spike, forward
+from sarx import spike
+from sarx.core.forward import forward
 
 
 def test():

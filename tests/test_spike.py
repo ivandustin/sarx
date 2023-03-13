@@ -1,6 +1,6 @@
 from jax.numpy import array, array_equal
 from jax import grad
-from sarx.core import spike
+from sarx import spike
 
 
 def test_spike():

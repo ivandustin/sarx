@@ -1,5 +1,5 @@
 from jax.numpy import arange, array, array_equal
-from sarx.core import right
+from sarx.core.neurogenesis import right
 
 
 def test():

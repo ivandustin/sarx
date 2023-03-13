@@ -1,10 +1,11 @@
+from functools import partial
 from jax.tree_util import tree_map
-from .core import update as f
+from .core import update as update_function
 
 
 def update(network, gradient, learning_rate):
     return tree_map(
-        lambda network, gradient: f(network, gradient, learning_rate),
+        partial(update_function, learning_rate=learning_rate),
         network,
         gradient,
     )

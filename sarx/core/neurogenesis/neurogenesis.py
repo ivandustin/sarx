@@ -1,5 +1,5 @@
 from jax.random import split
-from .synapse import synapse
+from sarx.synapse import synapse
 from .insert import insert
 
 

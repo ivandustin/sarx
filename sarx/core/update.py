@@ -1,6 +1,5 @@
-from .gc import gc
-from .gd import gd
+from sarx.gradient import descent, clip
 
 
 def update(network, gradient, learning_rate):
-    return gd(network, gc(gradient), learning_rate)
+    return descent(network, clip(gradient), learning_rate)
