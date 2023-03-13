@@ -22,12 +22,12 @@ def test():
         [1.0],
         [0.0]
     ])
-    model = train(model, x, y, 0.1)
+    model = train(model, x, y)
     assert array_equal(model(x).clip(0, 1), y)
 
 
-def train(network, x, y, learning_rate):
+def train(network, x, y):
     def body(_, network):
         gradient = grad(loss)(network, x, y)
-        return update(network, gradient, learning_rate)
+        return update(network, gradient, 0.1)
     return fori_loop(0, 30, body, network)
