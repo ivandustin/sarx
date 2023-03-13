@@ -22,8 +22,8 @@
 # SOFTWARE.
 #
 from jax.tree_util import register_pytree_node_class
-from .pytreelist import PyTreeList
 from sarx.apply import apply
+from .pytreelist import PyTreeList
 
 
 @register_pytree_node_class
