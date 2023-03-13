@@ -1,5 +1,5 @@
 from jax.numpy import arange, array, array_equal
-from sarx.core.left import left
+from sarx.core import left
 
 
 def test():

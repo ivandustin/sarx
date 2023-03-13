@@ -1,5 +1,5 @@
 from jax.numpy import arange, array, array_equal
-from sarx.core.tail import tail
+from sarx.core import tail
 
 
 def test():
