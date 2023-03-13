@@ -3,6 +3,6 @@ from sarx.core import gc
 
 
 def test():
-    x = array([-inf, -9, -8, 1, 0, 1, 8, 9, inf])
-    y = array([-8, -8, -8, 1, 0, 1, 8, 8, 8])
+    x = array([-inf, -8.5, -8.0, -1.5, 0.0, 1.5, 8.0, 8.5, inf])
+    y = array([-8.0, -8.0, -8.0, -1.5, 0.0, 1.5, 8.0, 8.0, 8.0])
     assert array_equal(gc(x), y)
