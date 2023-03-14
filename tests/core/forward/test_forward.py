@@ -1,5 +1,5 @@
 from jax.numpy import array, array_equal
-from sarx import spike
+from sarx import spike, identity
 from sarx.core.forward import forward
 
 
@@ -52,7 +52,7 @@ def test():
             [0.0]
         ]
     ])
-    actual = forward(spike)(S, x)
+    actual = forward(spike, identity)(S, x)
     actual_a = array(actual[0])
     actual_b = array(actual[1])
     assert array_equal(actual_a, expected_a)

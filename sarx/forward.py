@@ -22,8 +22,9 @@
 # SOFTWARE.
 #
 from .core.forward import forward as forward_function
+from .gradient.clipping import identity
 from .spike import spike
 
 
 def forward(*args, **kwargs):
-    return forward_function(spike)(*args, **kwargs)
+    return forward_function(spike, identity)(*args, **kwargs)

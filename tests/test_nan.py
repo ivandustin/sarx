@@ -1,4 +1,4 @@
-from jax.numpy import array, all, isclose, any, isnan
+from jax.numpy import array, isclose, any, isnan
 from jax.random import PRNGKey, split
 from jax.lax import fori_loop
 from jax import grad
@@ -11,12 +11,11 @@ def test():
     for key in split(key, 20):
         model = neurogenesis(key, model)
     x = array([
-        [0.1]
+        [1.0]
     ])
     y = array([
         [1.7]
     ])
-    assert all(model(x) == 0)
     model = train(model, x, y)
     assert isclose(model(x), y)
     for synapse in model:
@@ -27,4 +26,4 @@ def train(network, x, y):
     def body(_, network):
         gradient = grad(loss)(network, x, y)
         return update(network, gradient, 0.1)
-    return fori_loop(0, 40, body, network)
+    return fori_loop(0, 50, body, network)

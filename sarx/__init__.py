@@ -23,6 +23,7 @@
 #
 from .neurogenesis import neurogenesis
 from .classes.network import Network
+from .identity import identity
 from .forward import forward
 from .network import network
 from .synapse import synapse
@@ -34,6 +35,7 @@ from .mse import mse
 
 __all__ = [
     "neurogenesis",
+    "identity",
     "forward",
     "Network",
     "network",

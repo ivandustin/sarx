@@ -21,8 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from jax.numpy import clip as clip_function
+from .identity import identity
 
-
-def clip(gradient):
-    return clip_function(gradient, -8, 8)
+__all__ = ["identity"]

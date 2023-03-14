@@ -22,12 +22,12 @@
 # SOFTWARE.
 #
 from jax.tree_util import tree_map
-from .core import update as update_function
+from .gradient import descent
 
 
 def update(network, gradient, learning_rate):
     return tree_map(
-        lambda network, gradient: update_function(network, gradient, learning_rate),
+        lambda network, gradient: descent(network, gradient, learning_rate),
         network,
         gradient,
     )
