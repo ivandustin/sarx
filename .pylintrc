@@ -1,8 +1,5 @@
 [MESSAGES CONTROL]
 disable=
-    no-value-for-parameter,
-    redefined-outer-name,
     function-redefined,
-    redefined-builtin,
     missing-docstring,
     invalid-name
