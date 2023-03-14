@@ -21,11 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from jax.tree_util import register_pytree_node_class
-from sarx.apply import apply
-from .pytrees import List
+from .list import List
 
-
-@register_pytree_node_class
-class Network(List):
-    __call__ = apply
+__all__ = ["List"]

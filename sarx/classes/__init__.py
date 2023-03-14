@@ -21,7 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from .pytreelist import PyTreeList
 from .network import Network
 
-__all__ = ["PyTreeList", "Network"]
+__all__ = ["Network"]
