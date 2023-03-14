@@ -22,10 +22,11 @@
 # SOFTWARE.
 #
 from jax.tree_util import register_pytree_node_class
+from jax import jit
 from sarx.apply import apply
 from .pytrees import List
 
 
 @register_pytree_node_class
 class Network(List):
-    __call__ = apply
+    __call__ = jit(apply)
