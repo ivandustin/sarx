@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sarx"
-version = "0.5.1"
+version = "0.6.0"
 description = "A simple bioinspired artificial neural network in JAX"
 authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
 license = "MIT"
