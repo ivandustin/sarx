@@ -22,7 +22,6 @@
 # SOFTWARE.
 #
 from .neurogenesis import neurogenesis
-from .classes.network import Network
 from .identity import identity
 from .forward import forward
 from .network import network
@@ -37,7 +36,6 @@ __all__ = [
     "neurogenesis",
     "identity",
     "forward",
-    "Network",
     "network",
     "synapse",
     "update",

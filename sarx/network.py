@@ -21,9 +21,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from .core import network as network_function
-from .classes import Network
+from jax.random import split
+from sarx.synapse import synapse
 
 
-def network(*args, **kwargs):
-    return Network(network_function(*args, **kwargs))
+def network(key, inputs, layers=1):
+    return [synapse(key, shape=(inputs, layers))] + [
+        synapse(key, shape=(1, layers - index))
+        for index, key in zip(range(1, layers), split(key, layers - 1))
+    ]

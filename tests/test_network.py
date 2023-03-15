@@ -1,5 +1,5 @@
 from jax.random import PRNGKey
-from sarx.core.network import network
+from sarx.network import network
 
 
 def test_default_layers():

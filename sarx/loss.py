@@ -22,18 +22,19 @@
 # SOFTWARE.
 #
 from multipledispatch import dispatch
+from .apply import apply
 from .mse import mse
 
 
 @dispatch(object, object, object)
 def loss(network, x, y):
-    return mse(y, network(x))
+    return mse(y, apply(network, x))
 
 
 @dispatch(object)
 def loss(f):
     def function(network, x):
-        yhat = network(x)
+        yhat = apply(network, x)
         return mse(f(yhat), yhat)
 
     return function

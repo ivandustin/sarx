@@ -2,7 +2,7 @@ from jax.numpy import array, isclose, any, isnan
 from jax.random import PRNGKey, split
 from jax.lax import fori_loop
 from jax import grad
-from sarx import network, update, loss, neurogenesis
+from sarx import network, update, loss, neurogenesis, apply
 
 
 def test():
@@ -17,7 +17,7 @@ def test():
         [1.7]
     ])
     model = train(model, x, y)
-    assert isclose(model(x), y)
+    assert isclose(apply(model, x), y)
     for synapse in model:
         assert not any(isnan(synapse))
 

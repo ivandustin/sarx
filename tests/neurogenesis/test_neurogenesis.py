@@ -1,6 +1,5 @@
 from jax.random import PRNGKey, split
-from sarx.core.network import network
-from sarx.core.neurogenesis import neurogenesis
+from sarx import network, neurogenesis
 
 
 def test():
