@@ -1,15 +1,11 @@
 from jax.numpy import square, inf
 from jax import grad
-from sarx.gradient.clipping import identity
+from sarx.vjps import clip
+from sarx import identity
 
 
 def test():
-    function = identity(None, None)
-    assert function(1) == 1
-
-
-def test_gradient():
-    function = grad(equation(identity(4.0)))
+    function = grad(equation(clip(identity, 4.0)))
     assert function(-inf) == -4.0
     assert function(1.0) == -2.0
     assert function(2.0) == 0.0

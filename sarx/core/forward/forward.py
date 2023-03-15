@@ -25,7 +25,7 @@ from .first import first
 from .tail import tail
 
 
-def forward(f, g):
+def forward(f):
     def function(S, x):
         n = 0
         A = []
@@ -33,7 +33,7 @@ def forward(f, g):
         for s in S:
             n = (x @ s) + n
             a = first(n)
-            x = g(f(a))
+            x = f(a)
             n = tail(n)
             A = A + [a]
             B = B + [x]
