@@ -25,4 +25,8 @@ from functools import reduce
 
 
 def compose(*functions):
-    return reduce(lambda f, g: lambda x: f(g(x)), functions, lambda x: x)
+    return reduce(
+        lambda f, g: lambda *args, **kwargs: f(g(*args, **kwargs)),
+        functions,
+        lambda x: x,
+    )
