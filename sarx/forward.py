@@ -27,4 +27,4 @@ from .spike import spike
 
 
 def forward(*args, **kwargs):
-    return forward_function(spike, identity(-4.0, 4.0))(*args, **kwargs)
+    return forward_function(spike, identity(4.0))(*args, **kwargs)

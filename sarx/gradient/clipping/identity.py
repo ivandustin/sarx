@@ -21,10 +21,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+from multipledispatch import dispatch
 from jax.numpy import clip
 from jax import custom_vjp
 
 
+@dispatch(object, object)
 def identity(minimum, maximum):
     @custom_vjp
     def function(x):
@@ -38,3 +40,8 @@ def identity(minimum, maximum):
 
     function.defvjp(forward, backward)
     return function
+
+
+@dispatch(object)
+def identity(maximum):
+    return identity(-maximum, maximum)
