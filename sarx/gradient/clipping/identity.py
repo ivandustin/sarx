@@ -25,17 +25,16 @@ from jax.numpy import clip
 from jax import custom_vjp
 
 
-@custom_vjp
-def identity(x):
-    return x
+def identity(minimum, maximum):
+    @custom_vjp
+    def function(x):
+        return x
 
+    def forward(x):
+        return function(x), None
 
-def forward(x):
-    return identity(x), None
+    def backward(_, gradient):
+        return (clip(gradient, minimum, maximum),)
 
-
-def backward(_, g):
-    return (clip(g, -4, 4),)
-
-
-identity.defvjp(forward, backward)
+    function.defvjp(forward, backward)
+    return function
