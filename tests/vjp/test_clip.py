@@ -1,7 +1,7 @@
 from jax.numpy import square, inf
 from jax import grad
-from sarx.vjps import clip
 from sarx import identity
+from sarx.vjp import clip
 
 
 def test():
