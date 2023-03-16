@@ -8,6 +8,16 @@ from sarx import apply, loss, network, neurogenesis
 import pytest
 
 
+@pytest.fixture
+def key():
+    return PRNGKey(0)
+
+
+@pytest.fixture
+def model(key):
+    return network(key, 2)
+
+
 @pytest.mark.parametrize("n", [1, 20])
 @pytest.mark.parametrize("x,y", [
     (
@@ -39,13 +49,35 @@ import pytest
         ])
     )
 ])
-def test(n, x, y):
-    key = PRNGKey(0)
-    model = network(key, 2)
+def test_clipped(key, model, n, x, y):
     for key in split(key, n):
         model = neurogenesis(key, model)
     model = train(model, x, y)
     assert array_equal(apply(model, x).clip(0, 1), y.clip(0, 1))
+
+
+@pytest.mark.parametrize("n", [20])
+@pytest.mark.parametrize("x,y", [
+    (
+        array([
+            [0.0, 0.0],
+            [0.0, 2.0],
+            [2.0, 0.0],
+            [2.0, 2.0]
+        ]),
+        array([
+            [0.0],
+            [2.0],
+            [2.0],
+            [0.0]
+        ])
+    )
+])
+def test_exact(key, model, n, x, y):
+    for key in split(key, n):
+        model = neurogenesis(key, model)
+    model = train(model, x, y)
+    assert array_equal(apply(model, x), y)
 
 
 def train(network, x, y):
