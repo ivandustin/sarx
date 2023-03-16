@@ -22,5 +22,6 @@
 # SOFTWARE.
 #
 from .forward import forward
+from .spike import spike
 
-__all__ = ["forward"]
+__all__ = ["forward", "spike"]

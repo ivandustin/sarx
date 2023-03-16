@@ -22,7 +22,7 @@
 # SOFTWARE.
 #
 from .core.forward import forward as forward_function
-from .activate import activate
+from .spike import spike
 
 
-forward = forward_function(activate)
+forward = forward_function(spike)

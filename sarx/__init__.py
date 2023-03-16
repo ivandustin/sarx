@@ -22,7 +22,6 @@
 # SOFTWARE.
 #
 from .neurogenesis import neurogenesis
-from .activate import activate
 from .forward import forward
 from .network import network
 from .synapse import synapse
@@ -34,7 +33,6 @@ from .vjp import vjp
 
 __all__ = [
     "neurogenesis",
-    "activate",
     "forward",
     "network",
     "synapse",

@@ -21,8 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-from jax.numpy import where, minimum
+from jax.numpy import clip
+from .core.spike import spike as spike_function
+from .vjp import vjp
 
 
-def spike(x):
-    return where(x >= 1, minimum(x, 2), 0)
+spike = vjp(spike_function, lambda gradient: clip(gradient, -4.0, 4.0))
