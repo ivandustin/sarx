@@ -19,7 +19,6 @@ def test():
         [1.7]
     ])
     model = train(model, x, y)
-    print(apply(model, x))
     assert isclose(apply(model, x), y)
     for synapse in model:
         assert not any(isnan(synapse))
