@@ -21,8 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+from jax.numpy import clip
 from .spike import spike
-from .vjp import clip
+from .vjp import vjp
 
 
-activate = clip(spike, 4.0)
+activate = vjp(spike, lambda gradient: clip(gradient, -4.0, 4.0))

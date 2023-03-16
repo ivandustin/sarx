@@ -23,28 +23,24 @@
 #
 from .neurogenesis import neurogenesis
 from .activate import activate
-from .identity import identity
-from .compose import compose
 from .forward import forward
 from .network import network
 from .synapse import synapse
-from .update import update
 from .apply import apply
 from .spike import spike
 from .loss import loss
 from .mse import mse
+from .vjp import vjp
 
 __all__ = [
     "neurogenesis",
     "activate",
-    "identity",
-    "compose",
     "forward",
     "network",
     "synapse",
-    "update",
     "apply",
     "spike",
     "loss",
     "mse",
+    "vjp",
 ]

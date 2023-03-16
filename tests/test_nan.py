@@ -2,7 +2,8 @@ from jax.numpy import array, isclose, any, isnan
 from jax.random import PRNGKey, split
 from jax.lax import fori_loop
 from jax import grad
-from sarx import network, update, loss, neurogenesis, apply
+from optax import apply_updates, sgd
+from sarx import apply, loss, network, neurogenesis
 
 
 def test():
@@ -23,7 +24,13 @@ def test():
 
 
 def train(network, x, y):
-    def body(_, network):
+    optimizer = sgd(0.1)
+    state = optimizer.init(network)
+
+    def body(_, args):
+        network, state = args
         gradient = grad(loss)(network, x, y)
-        return update(network, gradient, 0.1)
-    return fori_loop(0, 50, body, network)
+        updates, state = optimizer.update(gradient, state)
+        return apply_updates(network, updates), state
+
+    return fori_loop(0, 50, body, (network, state))[0]
