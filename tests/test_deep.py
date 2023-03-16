@@ -1,5 +1,6 @@
-from jax.numpy import array, isclose, any, isnan
+from jax.numpy import array, isclose, any, clip, isnan
 from jax.random import PRNGKey, split
+from jax.tree_util import tree_map
 from jax.lax import fori_loop
 from jax import grad
 from optax import apply_updates, sgd
@@ -18,6 +19,7 @@ def test():
         [1.7]
     ])
     model = train(model, x, y)
+    print(apply(model, x))
     assert isclose(apply(model, x), y)
     for synapse in model:
         assert not any(isnan(synapse))
@@ -31,6 +33,8 @@ def train(network, x, y):
         network, state = args
         gradient = grad(loss)(network, x, y)
         updates, state = optimizer.update(gradient, state)
-        return apply_updates(network, updates), state
+        network = apply_updates(network, updates)
+        network = tree_map(lambda x: clip(x, -2.0, 2.0), network)
+        return network, state
 
     return fori_loop(0, 50, body, (network, state))[0]

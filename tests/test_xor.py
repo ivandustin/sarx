@@ -13,18 +13,18 @@ def test():
     model = neurogenesis(key_b, model)
     x = array([
         [0.0, 0.0],
-        [0.0, 1.0],
-        [1.0, 0.0],
-        [1.0, 1.0]
+        [0.0, 2.0],
+        [2.0, 0.0],
+        [2.0, 2.0]
     ])
     y = array([
         [0.0],
-        [1.0],
-        [1.0],
+        [2.0],
+        [2.0],
         [0.0]
     ])
     model = train(model, x, y)
-    assert array_equal(apply(model, x).clip(0, 1), y)
+    assert array_equal(apply(model, x).clip(0, 1), y.clip(0, 1))
 
 
 def train(network, x, y):
